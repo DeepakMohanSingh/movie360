@@ -30,6 +30,7 @@
     justify-content: center;
     width: 100%;
     max-width: 50%;
+    line-height: 1.45;
 }
 
 .search-box {
@@ -55,7 +56,6 @@
     padding: 1.15rem;
     background: var(--theme);
     color: white;
-    line-height: 1.45;
     cursor: pointer;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
