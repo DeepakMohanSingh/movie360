@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'src/app/models/movie';
 import { OmdbService } from 'src/app/services/omdb.service';
@@ -11,7 +12,6 @@ import { OmdbService } from 'src/app/services/omdb.service';
 export class SearchResultsComponent implements OnInit {
   showSearchResults: boolean;
   movieName: string;
-  searchTerm: string
   pageNumber: number;
   fetchingMovies: boolean;
   errorResponse: string | undefined;
@@ -21,12 +21,21 @@ export class SearchResultsComponent implements OnInit {
   showMovieDetails: boolean;
   totalResults: number;
   fetchedResults: number;
+  movieForm = new FormGroup({
+    searchTerm: new FormControl({
+      value: '',
+      disabled: false
+    },
+      [
+        Validators.required,
+        Validators.pattern("^[\\s]*[^\\s].*$")
+      ])
+  });
 
   constructor(private route: ActivatedRoute, private router: Router, private omdbService: OmdbService) {
     this.showSearchResults = false
     this.fetchingMovies = false;
     this.movieName = ''
-    this.searchTerm = ''
     this.pageNumber = 1
     this.movies = []
     this.moviesToRender = []
@@ -44,9 +53,10 @@ export class SearchResultsComponent implements OnInit {
       if (this.movieName)
         previousMovieName = this.movieName
       this.movieName = params['search']?.trim() || ''
-      this.searchTerm = this.movieName
+      this.movieForm.controls['searchTerm'].setValue(this.movieName)
       this.pageNumber = params['page'] ? Number(params['page']) : 1
       if (this.isValidMovieName()) {
+        this.movieName = this.movieName.trim()
         if (previousMovieName != this.movieName) {
           this.movies = []
           this.fetchedResults = 0
@@ -112,10 +122,12 @@ export class SearchResultsComponent implements OnInit {
   }
 
   searchMovie() {
-    this.router.navigate(['movies'], {
-      queryParams: {
-        search: this.searchTerm
-      }
-    });
+    if (this.movieForm.valid) {
+      this.router.navigate(['movies'], {
+        queryParams: {
+          search: this.movieForm.controls['searchTerm'].value
+        }
+      });
+    }
   }
 }

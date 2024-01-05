@@ -1,12 +1,15 @@
 <div class="search-results-page-container">
     <div class="search-container">
-        <div class="search-box-container">
-            <input class="search-box" type="text" placeholder="Type a movie name" #search="ngModel"
-                [(ngModel)]="searchTerm" (keyup.enter)="searchMovie()" />
-            <div class="search-button" (click)="searchMovie()">
-                Search
+        <form [formGroup]="movieForm">
+            <div class="search-box-container"
+                [class.shake-textbox]="!(movieForm.get('searchTerm')?.untouched || movieForm.get('searchTerm')?.pristine || movieForm.get('searchTerm')?.valid)">
+                <input class="search-box" type="text" placeholder="Type a movie name" formControlName="searchTerm"
+                    (keyup.enter)="searchMovie()" />
+                <div class="search-button" (click)="searchMovie()">
+                    Search
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <ng-container *ngIf="showSearchResults">
