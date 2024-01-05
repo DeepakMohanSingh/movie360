@@ -1,0 +1,79 @@
+<div class="movie-details-container">
+    <div class="movie-details">
+        <div class="close-icon-container">
+            <span class="material-symbols-outlined close-icon" (click)="closeDetails()">
+                close
+            </span>
+        </div>
+
+        <ng-container *ngIf="fetchingDetails; else showDetails">
+            <div style="text-align: center;">
+                Fetching details...
+            </div>
+        </ng-container>
+
+        <ng-template #showDetails>
+            <ng-container *ngIf="errorResponse; else details">
+                <div class="error-response">
+                    <img src="/assets/error.svg" />
+                    <div>
+                        {{errorResponse}}
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-template #details>
+                <div class="main-details-section">
+                    <div class="poster-container">
+                        <img class="poster" src="{{movieDetails?.poster}}" />
+                    </div>
+                    <div class="title">
+                        {{movieDetails?.title}}
+                    </div>
+                    <div class="main-info">
+                        <span>{{movieDetails?.year}}</span> | <span>{{movieDetails?.runtime}}</span> |
+                        <span>{{movieDetails?.type}}</span>
+                    </div>
+                    <div class="plot">
+                        <div style="max-width: 75%;">
+                            {{movieDetails?.plot}}
+                        </div>
+                    </div>
+                    <div class="general-info">
+                        <div style="max-width: 75%;">
+                            <div class="key-value-separator">
+                                <span class="key">Actors: </span>
+                                <span class="value">{{movieDetails?.actors}}</span>
+                            </div>
+                            <div class="key-value-separator">
+                                <span class="key">Director: </span>
+                                <span class="value">{{movieDetails?.director}}</span>
+                            </div>
+                            <div class="key-value-separator">
+                                <span class="key">Writer: </span>
+                                <span class="value">{{movieDetails?.writer}}</span>
+                            </div>
+                            <div class="key-value-separator">
+                                <span class="key">Language: </span>
+                                <span class="value">{{movieDetails?.language}}</span>
+                            </div>
+                            <div *ngIf="movieDetails?.ratings?.length" class="ratings">
+                                <div class="rating-heading">
+                                    <span class="key">Ratings</span>
+                                </div>
+                                <div>
+                                    <div *ngFor="let rating of movieDetails?.ratings">
+                                        <span class="key"><span class="material-symbols-outlined">kid_star</span>
+                                            {{rating.source}}:
+                                        </span>
+                                        <span class="value">{{rating?.value}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-template>
+    </div>
+</div>

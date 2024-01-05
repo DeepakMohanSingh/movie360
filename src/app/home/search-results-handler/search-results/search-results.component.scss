@@ -1,0 +1,122 @@
+.search-results-page-container {
+    padding: 1rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 50%;
+}
+
+.search-box {
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid lightgrey;
+    border-right: 0;
+    outline: none;
+    flex-grow: 1;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: white;
+    background: transparent;
+    caret-color: var(--theme);
+}
+
+.search-box:focus-within {
+    box-shadow: inset 0px 0px 1.5px 1.5px rgba(181, 181, 181, 0.75);
+}
+
+.search-button {
+    padding: 1rem;
+    background: var(--theme);
+    color: white;
+    line-height: 1.25;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.search-button:hover {
+    background: rgb(32, 173, 32);
+}
+
+.fetching-results {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.error-response {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-response img {
+    width: 6rem;
+    margin-bottom: 1rem;
+}
+
+.search-results-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+    margin-top: 0.5rem;
+}
+
+.search-result {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 1rem 1rem 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 1px 4px rgba(255, 255, 255, 0.16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-result:hover{
+    box-shadow: 0 1px 15px rgba(255, 255, 255, 0.16);
+}
+
+.search-result .poster-container {
+    height: 15rem;
+    width: 15rem;
+    overflow: hidden;
+}
+
+.search-result .poster-container .poster {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transition: transform 1.2s ease-out;
+}
+
+.search-result:hover .poster-container .poster {
+    transform: scale(1.35);
+    transition: transform 2.2s ease-in;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}

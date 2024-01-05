@@ -1,0 +1,120 @@
+.movie-details-container {
+    background-color: var(--background-color);
+    opacity: 0.95;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 1.5rem;
+    padding: 1.5rem 0 1.5rem 0;
+    border: 1px solid var(--color);
+    border-radius: 8px;
+}
+
+.close-icon-container {
+    text-align: end;
+    padding-inline: 1rem;
+}
+
+.close-icon-container .close-icon {
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.close-icon-container .close-icon:hover {
+    transform: scale(1.15);
+}
+
+.movie-details {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.error-response {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-response img {
+    width: 6rem;
+    margin-bottom: 1rem;
+}
+
+.poster-container {
+    text-align: center;
+}
+
+.poster {
+    width: 12rem;
+    box-shadow: 0 7px 29px 0 rgba(255, 255, 255, 0.2);
+}
+
+.main-details-section {
+    overflow: auto;
+    padding: 0 1.5rem 0 1.5rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+.main-info {
+    color: darkgray;
+    text-align: center;
+}
+
+.plot {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: darkgray;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.general-info {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.key {
+    color: darkgray;
+    font-weight: 500;
+}
+
+.key-value-separator {
+    margin-bottom: 0.5rem;
+}
+
+.ratings {
+    margin-top: 1rem;
+}
+
+.rating-heading {
+    text-decoration: underline;
+    text-align: center;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.ratings .material-symbols-outlined {
+    vertical-align: middle;
+    font-size: 1.1rem;
+}

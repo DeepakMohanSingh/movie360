@@ -1,0 +1,16 @@
+.page-not-found-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-not-found-container img {
+    width: 6rem;
+    margin-bottom: 1rem;
+}
+
+.nav-button {
+    margin-top: 1.5rem;
+}

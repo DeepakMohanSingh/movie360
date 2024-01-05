@@ -1,0 +1,54 @@
+<div class="search-results-page-container">
+    <div class="search-container">
+        <div class="search-box-container">
+            <input class="search-box" type="text" placeholder="Type a movie name" #search="ngModel"
+                [(ngModel)]="searchTerm" (keyup.enter)="searchMovie()" />
+            <div class="search-button" (click)="searchMovie()">
+                Search
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="showSearchResults">
+        <ng-container *ngIf="fetchingMovies; else results">
+            <div class="fetching-results">
+                Searching...
+            </div>
+        </ng-container>
+
+        <ng-template #results>
+            <ng-container *ngIf="errorResponse; else listOfMovies">
+                <div class="error-response">
+                    <img src="/assets/error.svg" />
+                    <div>
+                        {{errorResponse}}
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-template #listOfMovies>
+                <div class="search-results-container">
+                    <div *ngFor="let movie of moviesToRender" (click)="requestMovieDetails(movie)"
+                        class="search-result">
+                        <div class="poster-container">
+                            <img [src]="movie.poster" class="poster" alt="Poster" />
+                        </div>
+                        <div style="padding-top: 0.5rem;">{{movie.title}}</div>
+                        <div>{{movie.year}}</div>
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button *ngIf="pageNumber > 1" class="nav-button" type="button" [routerLink]="['/movies']"
+                        [queryParams]="{ search: movieName, page: pageNumber-1 }" style="margin-right: 0.5rem;">Previous
+                        page</button>
+                    <button *ngIf="fetchedResults < totalResults" class="nav-button" type="button"
+                        [routerLink]="['/movies']" [queryParams]="{ search: movieName, page: pageNumber+1 }">Next
+                        page</button>
+                </div>
+            </ng-template>
+        </ng-template>
+    </ng-container>
+</div>
+
+<movie-details *ngIf="showMovieDetails" [movie]="selectedMovie" (movieDetailsEventEmitter)="showMovieDetails=false">
+</movie-details>
