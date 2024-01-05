@@ -19,10 +19,11 @@
     justify-content: center;
     width: 100%;
     max-width: 50%;
-    line-height: 1.25;
+    height: 3.25rem;
 }
 
 .search-box {
+    height: 100%;
     padding: 1rem;
     font-size: 1rem;
     border: 1px solid lightgrey;
@@ -42,6 +43,7 @@
 }
 
 .search-button {
+    height: 100%;
     padding: 1rem;
     background: var(--theme);
     color: white;
