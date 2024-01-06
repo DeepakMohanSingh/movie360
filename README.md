@@ -1,6 +1,6 @@
 # Movie360
 
-This simple Angular application fetches any movie details from the OMDB (Open Movie Database) API.
+This simple Angular application fetches any movie details using the OMDB (Open Movie Database) API.
 
 ## Motivation
 
