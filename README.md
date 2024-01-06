@@ -22,18 +22,22 @@ This was created as a hands-on project to deepen my understanding of Angular and
 
 ### Installation
 
+1. Clone the repository
 ```bash
 git clone https://github.com/DeepakMohanSingh/movie360.git
 ```
 
+2. Go to the root directory of the cloned repository
 ```bash
 cd movie360
 ```
 
+3. Install dependencies
 ```bash
 npm install
 ```
 
+4. Start the development server
 ```bash
 ng serve
 ```
