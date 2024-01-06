@@ -11,6 +11,10 @@ This was created as a hands-on project to deepen my understanding of Angular and
 - Search for movies by name
 - Display movie details on click
 
+### Live
+
+[Try](https://deepakmohansingh.github.io/movie360/) the hosted application live (I am using a free API key and hence, if the results fail, that means the users have already reached 1000 hits in a month). If you want it to try it with your API key and play with the application, follow the below steps.
+
 ## Getting Started
 
 ### Prerequisites
@@ -57,7 +61,3 @@ export const environment = {
 - Open your browser and navigate to http://localhost:4200/
 - Type a movie name in the search bar and press Enter.
 - Click on a movie result to view its details.
-
-### Live
-
-[Here's](https://deepakmohansingh.github.io/movie360/) a hosted site (I am using free API and hence the results may fail if users have already reached 1000 hits in a month).
