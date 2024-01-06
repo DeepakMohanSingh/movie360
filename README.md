@@ -23,7 +23,7 @@ This was created as a hands-on project to deepen my understanding of Angular and
 ### Installation
 
 ```bash
-git clone [https://github.com/DeepakMohanSingh/movie360.git](https://github.com/DeepakMohanSingh/movie360.git)
+git clone https://github.com/DeepakMohanSingh/movie360.git
 ```
 
 ```bash
