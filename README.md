@@ -60,4 +60,4 @@ export const environment = {
 
 ### Live
 
-[Here's](https://deepakmohansingh.github.io/movie360/) a hosted site (I am using free API and hence the results may fail if users have already made 1000 hits in a month).
+[Here's](https://deepakmohansingh.github.io/movie360/) a hosted site (I am using free API and hence the results may fail if users have already reached 1000 hits in a month).
