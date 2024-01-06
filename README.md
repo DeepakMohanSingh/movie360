@@ -24,15 +24,19 @@ This was created as a hands-on project to deepen my understanding of Angular and
 
 ```bash
 git clone [https://github.com/DeepakMohanSingh/movie360.git](https://github.com/DeepakMohanSingh/movie360.git)
+```
 
 ```bash
 cd movie360
+```
 
 ```bash
 npm install
+```
 
 ```bash
 ng serve
+```
 
 ### Add your API key
 
