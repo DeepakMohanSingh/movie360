@@ -1,29 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  searchTerm: string;
+export class HomeComponent {
+  movieForm = new FormGroup({
+    searchTerm: new FormControl({
+      value: '',
+      disabled: false
+    },
+      [
+        Validators.required,
+        Validators.pattern("^[\\s]*[^\\s].*$")
+      ])
+  });
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-    this.searchTerm = ''
-  }
+  constructor(private router: Router) {
 
-  ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.searchTerm = params['search']?.trim() || ''
-    })
   }
 
   searchMovie() {
-    this.router.navigate(['movies'], {
-      queryParams: {
-        search: this.searchTerm
-      }
-    });
+    if (this.movieForm.valid) {
+      this.router.navigate(['movies'], {
+        queryParams: {
+          search: this.movieForm.controls['searchTerm'].value
+        }
+      });
+    }
   }
 }
