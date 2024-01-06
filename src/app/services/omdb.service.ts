@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OmdbService {
-  private api_url = 'https://www.omdbapi.com/?apikey=ee257d18&'
+  private api_url = `https://www.omdbapi.com/?apikey=${environment.OMDB_API_KEY}&`
 
   constructor(private httpClient: HttpClient) {
 
